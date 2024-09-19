@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobile = document.querySelector(".mobile");
 
   menu.addEventListener("click", () => {
+    console.log("Menu clicked");
     mobile.style.visibility = "visible";
   });
 

@@ -301,10 +301,6 @@ h1 span {
   .links {
     display: none;
   }
-
-  .links.mobile {
-    display: flex;
-  }
 }
 
 @media (min-width: 851px) and (max-width: 1024px) {
