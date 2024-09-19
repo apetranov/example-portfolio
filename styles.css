@@ -1,0 +1,360 @@
+.person {
+  width: 400px;
+  height: auto;
+  border-radius: 100%;
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
+.mobile {
+  padding: 50px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Fixes the position relative to the viewport */
+  top: 0; /* Positions the links at the top of the viewport */
+  right: 0;
+  background-color: white;
+  z-index: 1000;
+  visibility: hidden;
+}
+
+body.dark-mode .mobile {
+  background-color: black;
+}
+
+.menu:hover {
+  cursor: pointer;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+}
+
+@keyframes iconUp {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes iconDown {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.icons div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background-color: rgb(255, 165, 0);
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(255, 166, 0, 0.7);
+}
+
+.icons div:hover {
+  cursor: pointer;
+  animation: iconUp 0.3s forwards;
+}
+
+.icons div:not(:hover) {
+  animation: iconDown 0.3s forwards;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+body.dark-mode .menu {
+  background-color: white;
+  padding: 5px;
+  border-radius: 100%;
+}
+
+body.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.links div:last-child {
+  border-radius: 100%;
+  padding: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  max-width: 500px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100vh;
+}
+
+@keyframes personFadeIn {
+  from {
+  }
+  to {
+    box-shadow: 0px 0px 22px rgba(255, 166, 0, 0.7);
+  }
+}
+
+@keyframes personFadeOut {
+  from {
+    box-shadow: 0px 0px 22px rgba(255, 166, 0, 0.7);
+  }
+  to {
+  }
+}
+
+.person:not(:hover) {
+  animation: personFadeOut 0.3s forwards;
+}
+
+.person:hover {
+  animation: personFadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.text {
+  padding: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+  animation: fadeIn 1s forwards;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.links div {
+  padding: 5px 20px;
+  background-color: rgba(1, 1, 1, 0);
+}
+
+.links div:last-child:hover {
+  animation: none;
+}
+
+.links div:last-child:not(:hover) {
+  animation: none;
+}
+
+@keyframes linksFadeIn {
+  from {
+    color: gray;
+    background-color: rgb(255, 255, 255, 0);
+    border-radius: 20px;
+  }
+  to {
+    color: white;
+    background-color: rgb(255, 165, 0);
+    border-radius: 20px;
+    box-shadow: 0px 0px 22px rgba(255, 166, 0, 0.7);
+  }
+}
+
+@keyframes linksFadeOut {
+  from {
+    color: white;
+    background-color: rgb(255, 165, 0);
+    border-radius: 20px;
+    box-shadow: 0px 0px 22px rgba(255, 166, 0, 0.7);
+  }
+
+  to {
+    color: gray;
+    background-color: rgb(255, 255, 255, 0);
+    border-radius: 20px;
+  }
+}
+
+.links div:hover {
+  cursor: pointer;
+  animation: linksFadeIn 0.3s forwards;
+}
+
+h1 span {
+  color: orange;
+}
+
+.links div:not(:hover) {
+  animation: linksFadeOut 0.3s forwards;
+}
+
+.header h1 {
+  color: orange;
+  cursor: pointer;
+}
+
+.header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 480px) {
+  /* Styles for mobile devices */
+  .header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .content {
+    flex-direction: column;
+  }
+  .text {
+    padding: 20px;
+    text-align: center;
+  }
+  .person {
+    width: 300px;
+    height: auto;
+  }
+  .menu {
+    display: flex;
+  }
+
+  .links {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 851px) {
+  /* Styles for mobile landscape */
+  .header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .content {
+    flex-direction: column;
+  }
+  .text {
+    padding: 20px;
+    text-align: center;
+  }
+  .person {
+    width: 300px;
+    height: auto;
+  }
+  .menu {
+    display: flex;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .links.mobile {
+    display: flex;
+  }
+}
+
+@media (min-width: 851px) and (max-width: 1024px) {
+  /* Styles for tablets portrait */
+  .text h1 {
+    margin-right: auto;
+  }
+  .menu {
+    display: none;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* Styles for tablets landscape */
+  .text h1 {
+    margin-right: auto;
+  }
+  .menu {
+    display: none;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+  /* Styles for small laptops/desktops */
+  .text h1 {
+    margin-right: auto;
+  }
+  .menu {
+    display: none;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 1441px) {
+  /* Styles for large desktops */
+  .text h1 {
+    margin-right: auto;
+  }
+  .menu {
+    display: none;
+  }
+  .mobile {
+    display: none;
+  }
+}
