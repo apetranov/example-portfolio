@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightBtn2 = document.querySelector(".light2");
   const darkBtn2 = document.querySelector(".dark2");
 
+  // Check localStorage on load to apply saved theme
+  const savedMode = localStorage.getItem("theme");
+  if (savedMode === "dark") {
+    applyDarkMode();
+  } else {
+    applyLightMode();
+  }
+
   menu.addEventListener("click", () => {
     console.log("Menu clicked");
     mobile.style.visibility = "visible";
@@ -23,41 +31,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
   modeSwitch.addEventListener("click", () => {
     if (!lightBtn.classList.contains("hidden")) {
-      lightBtn.classList.add("hidden");
-      darkBtn.classList.remove("hidden");
-      modeSwitch.style.backgroundColor = "gray";
-      body.classList.add("dark-mode");
-      link.style.color = "white";
+      applyDarkMode();
+      localStorage.setItem("theme", "dark"); // Save dark mode preference
     } else {
-      darkBtn.classList.add("hidden");
-      lightBtn.classList.remove("hidden");
-      body.classList.remove("dark-mode");
-      link.style.color = "black";
-      modeSwitch.style.backgroundColor = "white";
+      applyLightMode();
+      localStorage.setItem("theme", "light"); // Save light mode preference
     }
   });
 
   modeSwitch2.addEventListener("click", () => {
     if (!lightBtn2.classList.contains("hidden")) {
-      lightBtn2.classList.add("hidden");
-      darkBtn2.classList.remove("hidden");
-      modeSwitch2.style.backgroundColor = "gray";
-      modeSwitch2.style.padding = "5px";
-      modeSwitch2.style.borderRadius = "100%";
-      body.classList.add("dark-mode");
-      link.style.color = "white";
-      close.style.backgroundColor = "gray";
-      close.style.padding = "5px";
-      close.style.borderRadius = "100%";
-      modeSwitch.style.backgroundColor = "gray";
+      applyDarkMode();
+      localStorage.setItem("theme", "dark"); // Save dark mode preference
     } else {
-      darkBtn2.classList.add("hidden");
-      lightBtn2.classList.remove("hidden");
-      body.classList.remove("dark-mode");
-      link.style.color = "black";
-      modeSwitch2.style.backgroundColor = "white";
-      close.style.backgroundColor = "white";
-      modeSwitch.style.backgroundColor = "white";
+      applyLightMode();
+      localStorage.setItem("theme", "light"); // Save light mode preference
     }
   });
+
+  // Function to apply dark mode
+  function applyDarkMode() {
+    lightBtn.classList.add("hidden");
+    darkBtn.classList.remove("hidden");
+    lightBtn2.classList.add("hidden");
+    darkBtn2.classList.remove("hidden");
+    modeSwitch.style.backgroundColor = "gray";
+    modeSwitch2.style.backgroundColor = "gray";
+    modeSwitch2.style.padding = "5px";
+    modeSwitch2.style.borderRadius = "100%";
+    body.classList.add("dark-mode");
+    link.style.color = "white";
+    close.style.backgroundColor = "gray";
+    close.style.padding = "5px";
+    close.style.borderRadius = "100%";
+  }
+
+  // Function to apply light mode
+  function applyLightMode() {
+    darkBtn.classList.add("hidden");
+    lightBtn.classList.remove("hidden");
+    darkBtn2.classList.add("hidden");
+    lightBtn2.classList.remove("hidden");
+    body.classList.remove("dark-mode");
+    link.style.color = "black";
+    modeSwitch.style.backgroundColor = "white";
+    modeSwitch2.style.backgroundColor = "white";
+    close.style.backgroundColor = "white";
+  }
 });

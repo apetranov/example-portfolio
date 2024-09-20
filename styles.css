@@ -4,6 +4,12 @@
   border-radius: 100%;
 }
 
+.modeSwitch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .close:hover {
   cursor: pointer;
 }
@@ -62,7 +68,7 @@ body.dark-mode .mobile {
   padding: 5px;
   background-color: rgb(255, 165, 0);
   border-radius: 20px;
-  box-shadow: 0px 0px 10px rgba(255, 166, 0, 0.7);
+  box-shadow: 0px 0px 22px rgba(255, 166, 0, 0.9);
 }
 
 .icons div:hover {
@@ -165,6 +171,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
 .links {
@@ -221,6 +228,28 @@ body {
   animation: linksFadeIn 0.3s forwards;
 }
 
+.mobile div:hover {
+  cursor: pointer;
+  animation: linksFadeIn 0.3s forwards;
+}
+
+.mobile div:not(:hover) {
+  animation: linksFadeOut 0.3s forwards;
+}
+
+.mobile div {
+  padding: 5px 20px;
+  background-color: rgba(1, 1, 1, 0);
+}
+
+.mobile div:last-child:hover {
+  animation: none;
+}
+
+.mobile div:last-child:not(:hover) {
+  animation: none;
+}
+
 h1 span {
   color: orange;
 }
@@ -263,7 +292,7 @@ h1 span {
     text-align: center;
   }
   .person {
-    width: 300px;
+    width: 250px;
     height: auto;
   }
   .menu {
@@ -313,6 +342,10 @@ h1 span {
   }
   .mobile {
     display: none;
+  }
+  .person {
+    width: 300px;
+    height: auto;
   }
 }
 
